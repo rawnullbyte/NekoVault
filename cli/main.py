@@ -3,18 +3,9 @@ import websockets
 import json
 import questionary
 from rich.console import Console
-from rich.table import Table
-from rich.panel import Panel
 from rich_gradient import Text
-from rich.live import Live
-from rich.prompt import Prompt
-from prompt_toolkit import PromptSession
-from prompt_toolkit.key_binding import KeyBindings
-from textual.app import App
-from textual.widgets import DataTable
 import utils.crypto
 import ssl
-import time
 import sys
 
 ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
@@ -33,20 +24,6 @@ class NekoClient:
         self.hashedMasterPassword = ""
         self.credentials = {}
 
-        self.kb = KeyBindings()
-        self.setup_bindings()
-
-    def setup_bindings(self):
-        @self.kb.add('c-r') # Ctrl + R
-        async def _(event):
-            credentialsResponse = await self.send_action("getCredentials")
-            if credentialsResponse["status"] == 200:
-                console.print(f"[bold green]Credentials received![/bold green]")
-                self.credentials = await self.processCredentials(credentialsResponse["credentials"])
-            else:
-                console.print(f"[bold red]Error:[/bold red] {credentialsResponse["response"]}")
-                await self.exit()
-
     async def connect(self):
         self.ws = await websockets.connect(self.uri, ssl=ssl_context)
         console.print("[bold green]Connected to NekoVault![/bold green]")
@@ -54,7 +31,7 @@ class NekoClient:
     async def exit(self):
         if self.ws:
             await self.ws.close()
-        console.print("[yellow]Disconnected. Goodbye![/yellow]")
+        console.print("[yellow]Disconnected. Goodbye![/yellow] 👏")
         sys.exit(0)
 
     async def clear(self):
@@ -209,4 +186,4 @@ if __name__ == "__main__":
     try:
         asyncio.run(start())
     except KeyboardInterrupt:
-        console.print("\n[yellow]Goodbye![/yellow]")
+        console.print("\n[yellow]Goodbye![/yellow] 👏")
