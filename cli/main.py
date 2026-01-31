@@ -7,6 +7,7 @@ from rich_gradient import Text
 import utils.crypto
 import ssl
 import sys
+import os
 
 ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 ssl_context.check_hostname = False
@@ -176,7 +177,7 @@ class NekoClient:
                 break
 
 async def start():
-    client = NekoClient("wss://localhost:8765")
+    client = NekoClient(f"wss://localhost:{int(os.environ.get("PORT", 8765))}")
     await client.connect()
     await client.loginMenu()
     await client.postLogin()

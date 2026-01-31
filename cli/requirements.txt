@@ -1,0 +1,6 @@
+websockets
+questionary
+rich
+rich-gradient
+pycryptodome
+argon2-cffi

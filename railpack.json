@@ -1,0 +1,6 @@
+{
+    "$schema": "https://schema.railpack.com",
+    "deploy": {
+        "startCommand": "cd core && pip install -r requirements.txt && python main.py"
+    }
+}

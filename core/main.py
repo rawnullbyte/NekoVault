@@ -165,7 +165,7 @@ class ClientSession():
 
 async def main():
     listenerIP = "0.0.0.0"
-    port = 8765
+    port = int(os.environ.get("PORT", 8765))
 
     async def handler_wrapper(websocket):
         handler = ClientSession(websocket)
