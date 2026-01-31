@@ -1,0 +1,1 @@
+server: cd core && python3 main.py
