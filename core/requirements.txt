@@ -1,0 +1,5 @@
+lmdb
+argon2-cffi
+cryptography
+pycryptodome
+rocksdict
