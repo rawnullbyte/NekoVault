@@ -5,13 +5,13 @@ cd core
 pip install -r requirements.txt
 ```
 
-## Install requirements for cli client
+## Install requirements for CLI client
 ```bash
 cd cli
 pip install -r requirements.txt
 ```
 
-## Running server and cli client
+## Running server and CLI client
 ### Terminal 1
 ```bash
 cd core
