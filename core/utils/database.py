@@ -10,17 +10,12 @@ class Database:
         username: str {
             hPassword: str,
             salt: str,
-            credentials: [
-                {
-                    credID: str,
-                    field: list[str],
-                    attachments: [
-                        filename: str
-                        mime: image/png
-                        data: base64 file data
-                    ]
+            credentials: {
+                credID: str {
+                    fields: list[str],
+                    field: str,
                 }   
-            ]
+            }
         }
         """
 
