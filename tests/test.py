@@ -74,3 +74,4 @@ if __name__ == "__main__":
             sys.exit(0)
     except Exception as e:
         print(f"\nConnection Error: {e}\nIs the NekoVault server running?")
+        sys.exit(1)
