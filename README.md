@@ -294,7 +294,7 @@ This is a simple and secure backend made for password related applications. For 
 ```
 </details>
 
-### Error responses:
+### Global error responses:
 
 #### Payload Size:
 ```json
