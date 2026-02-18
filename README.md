@@ -120,7 +120,7 @@ This is a simple and secure backend made for password related applications. For 
 
 ##### Notes: 
 - Must be authenticated!
-- 30faa158ee797eef is the credential ID (used for deleteing creds etc.)
+- 12396f7ef6d33f4f is the credential ID (used for deleteing creds etc.)
 - Values of credential keys must be decrypted on client side using a hash of the master password.
 
 ##### Payload:
