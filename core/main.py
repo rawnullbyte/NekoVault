@@ -36,7 +36,7 @@ class ClientSession():
             print(f"User {self.username} disconnected.")
         except json.decoder.JSONDecodeError:
             print(f"Garbage received from {self.websocket.remote_address}, closing connection.")
-            self.websocket.close()
+            await self.websocket.close()
     
     async def handle_command(self, data):
         # Check total size of the JSON string
@@ -147,8 +147,9 @@ class ClientSession():
                 credential = data.get("credential")
                 if not isinstance(credential, dict):
                     await self.websocket.send(json.dumps({"response": "Invalid credential!", "status": 400}))
-                credential.pop(credID, None)
-                credentials[data.get("credID")] = data.get("credential")
+                credential.pop(data.get("credID"), None)
+                credentials[data.get("credID")] = credential
+                db.put(self.username, user)
                 await self.websocket.send(json.dumps({"response": "Credential updated!", "status": 200}))
             else:
                 await self.websocket.send(json.dumps({"response": "Not authenticated!", "status": 401}))
