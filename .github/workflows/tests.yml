@@ -29,8 +29,9 @@ jobs:
         # Run the server in the background (&)
         python3 main.py & 
         sleep 3
+      working-directory: ./core
 
     - name: Run Tests
       run: |
-        cd tests
         python3 test.py
+      working-directory: ./tests
