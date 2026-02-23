@@ -87,7 +87,7 @@ This is a simple and secure backend made for password related applications. For 
 
 <!--------------------------------------------------------------------------->
 
-#### Data management
+### Data management
 
 <details>
     <summary>getSalt</summary>
